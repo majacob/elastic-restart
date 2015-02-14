@@ -1,7 +1,4 @@
 
-
-
-
 Elasticsearch script to compute a set of nodes that do not overlap in shard placements.
 
 # Description
@@ -9,6 +6,6 @@ Elasticsearch script to compute a set of nodes that do not overlap in shard plac
 
 # Required python libraries:
 
-- elasticsearch python client ()
-- networkx ()
+- elasticsearch python client (http://elasticsearch-py.rtfd.org/)
+- networkx (https://networkx.github.io/)
 
