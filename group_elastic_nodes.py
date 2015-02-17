@@ -67,8 +67,21 @@ def heuristic_approx(G):
 	iset=[];
 	for n in sorted_nodes:
 		if n in G.nodes():
-			iset.append(n);
-			G.remove_nodes_from(G.neighbors(n));
-			G.remove_node(n);
+			# Check if n has any neighbours already in the independent set
+			# if so, skip
+			
+			overlap= [x for x in iset if x in G.neighbors(n)]
+			
+			if len(overlap) == 0:
+				iset.append(n);
+				G.remove_nodes_from(G.neighbors(n));
+				G.remove_node(n);
 	return iset;
-print "Approx maximum Independent set:"+str(heuristic_approx(G));
+
+
+while len(G.nodes()) > 0:
+	iset = heuristic_approx(G.copy());
+	print "Approx maximum Independent set:"+str(iset);
+	G.remove_nodes_from(iset);
+
+
